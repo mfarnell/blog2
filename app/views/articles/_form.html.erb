@@ -21,7 +21,18 @@
     <%= f.text_field :tag_list %>
   </p>
 
+   <p>
+    <% if @article.image.exists? %>
+        <%= image_tag @article.image.url(:thumb) %><br/>
+    <% else %> 
+    <%= f.label :image, "Attach a New Image" %><br />
+    <%= f.file_field :image %>
 
+    <% end %>
+    
+  </p>
     <%= f.submit %>
   </p>
+
+  <h4><%= link_to "Back to Articles List", articles_path %></h4>
 <% end %>
