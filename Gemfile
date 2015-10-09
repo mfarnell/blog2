@@ -27,6 +27,9 @@ gem 'paperclip'
 
 gem 'paperclip-rack', require: 'paperclip/rack'
 
+gem 'sorcery'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

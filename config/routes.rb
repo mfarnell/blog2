@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
     resources :tags
 
+    resources :authors
+
+
 
   root to: 'articles#index'
 end
