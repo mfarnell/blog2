@@ -20,10 +20,11 @@
 
 <%= render partial: 'comments/form' %>
 
+<% if logged_in? %>
+  <p style="margin-top:15px;"><%= link_to "Edit", edit_article_path(@article) %></p>
 
-<p style="margin-top:15px;"><%= link_to "Edit", edit_article_path(@article) %></p>
-
-<p style="margin-top:15px;"><%= link_to "Delete", article_path(@article) , method: :delete, data: {confirm: "Really delete the article?"}
-%></p>
+  <p style="margin-top:15px;"><%= link_to "Delete", article_path(@article) , method: :delete, data: {confirm: "Really delete the article?"}
+  %></p>
+<% end %>
 
 <h4><%= link_to "Back to Articles List", articles_path %></h4>
