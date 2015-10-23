@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023163917) do
+ActiveRecord::Schema.define(version: 20151023164805) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -19,6 +19,17 @@ ActiveRecord::Schema.define(version: 20151023163917) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
+
+  create_table "attachments", force: :cascade do |t|
+    t.string   "file_file_name",    limit: 255
+    t.string   "file_content_type", limit: 255
+    t.integer  "file_file_size",    limit: 4
+    t.integer  "article_id",        limit: 4
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "attachments", ["article_id"], name: "index_attachments_on_article_id", using: :btree
 
   create_table "authors", force: :cascade do |t|
     t.string   "username",         limit: 255,                 null: false
@@ -58,6 +69,7 @@ ActiveRecord::Schema.define(version: 20151023163917) do
     t.datetime "updated_at",             null: false
   end
 
+  add_foreign_key "attachments", "articles"
   add_foreign_key "comments", "articles"
   add_foreign_key "taggings", "articles"
   add_foreign_key "taggings", "tags"
