@@ -20,6 +20,11 @@
     <%= f.label :tag_list %><br />
     <%= f.text_field :tag_list %>
   </p>
+
+  <p> <%= render 'attachments/form', f: f %> </p>
+  <div style="border: 1px solid red;"> 
+    <%= render :partial => 'attachment'%> 
+  </div>
     
   </p>
     <%= f.submit %>

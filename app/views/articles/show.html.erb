@@ -11,6 +11,8 @@
   <%= @article.body.html_safe %>
 </div><br/>
 
+<%= render partial: 'articles/attachment' %>
+
 <h3>Comments (<%= @article.comments.size %>) </h3>
 <%= render partial: 'articles/comment', collection: @article.comments %>
 

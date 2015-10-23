@@ -13,8 +13,10 @@ class ArticlesController < ApplicationController
     @comment = Comment.new
     @comment.article_id = @article.id
 
+    @attachment = Attachment.new
+    @attachment.article_id = @article.id
 
-     render
+    render
     # render :show
     # render "articles/show"
   end
@@ -33,9 +35,10 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+    @article.attachments.build
   end
 
-#some how when an attachment is added, need to call attachment controller
+
   def update
       @article = Article.find(params[:id])
       @article.update(article_params)

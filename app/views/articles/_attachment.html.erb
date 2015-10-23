@@ -1,0 +1,18 @@
+<div><br/>
+<h4>Current files</h4>
+  <% for attachments in @article.attachments %>
+
+     <% if attachments.file_content_type == 'application/pdf' %>
+        <%= attachments.file_file_name %> <br/>     
+     <% end %>
+
+    <% if attachments.file_content_type == 'image/jpeg' %>
+        <%= attachments.file_file_name %><br/>    
+     <% end %>
+
+
+  <% end %>
+  </p>
+
+
+</div>

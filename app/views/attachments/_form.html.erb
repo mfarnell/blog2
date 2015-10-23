@@ -1,0 +1,14 @@
+<p>
+  <% if @article.attachments.exists? %>
+  <h3>Current Attachments</h3>
+    <% for attachments in @article.attachments %>
+       <%= attachments.file_file_name  %><br/>
+    <% end %>
+  <% end %>
+
+<h3>Add a New Attachement</h3>
+  <%= f.fields_for :attachments do |fields| %>
+    <%= fields.label :file, "Attach a file" %><br />
+    <%= fields.file_field :file %>
+  <% end %>
+</p>
