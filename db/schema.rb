@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151009002108) do
+ActiveRecord::Schema.define(version: 20151015182336) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",              limit: 255
@@ -25,12 +25,13 @@ ActiveRecord::Schema.define(version: 20151009002108) do
   end
 
   create_table "authors", force: :cascade do |t|
-    t.string   "username",         limit: 255, null: false
-    t.string   "email",            limit: 255, null: false
-    t.string   "crypted_password", limit: 255, null: false
-    t.string   "salt",             limit: 255, null: false
+    t.string   "username",         limit: 255,                 null: false
+    t.string   "email",            limit: 255,                 null: false
+    t.string   "crypted_password", limit: 255,                 null: false
+    t.string   "salt",             limit: 255,                 null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin",            limit: 1,   default: false, null: false
   end
 
   add_index "authors", ["email"], name: "index_authors_on_email", unique: true, using: :btree

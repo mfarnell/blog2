@@ -16,7 +16,11 @@ class AuthorsController < ApplicationController
   # GET /authors
   # GET /authors.json
   def index
-    @authors = Author.all
+    if current_user.admin?
+      @authors = Author.all
+    else
+      redirect_to action: :show, id:current_user.id
+    end
   end
 
   # GET /authors/1
