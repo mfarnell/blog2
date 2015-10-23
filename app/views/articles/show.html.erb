@@ -7,10 +7,6 @@
   <% end %>
 </p>
 
-<% if @article.image.exists? %>
-  <p style="margin-top:15px;"><%= image_tag @article.image.url(:medium)%></p>
-<% end %>
-
 <div style="margin-top:15px;border:1px solid black;padding:20px;">
   <%= @article.body.html_safe %>
 </div><br/>
